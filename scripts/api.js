@@ -11,9 +11,11 @@ const api = (function(){
   };
 
   const createItem = function(name, callback) {
+
     const item = {
       name
     };
+    
     const newItem = JSON.stringify(item);
     $.ajax({
       'url' : `${BASE_URL}/items`,
@@ -21,8 +23,6 @@ const api = (function(){
       "contentType"  : "application/json",
       "data" : newItem,
       "success" : callback
-
-        
     });
   };
 
