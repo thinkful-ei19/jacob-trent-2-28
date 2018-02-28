@@ -1,5 +1,5 @@
 'use strict';
-/* global shoppingList, store, $, Item */
+/* global shoppingList, store, $, api */
 
 $(document).ready(function() {
   api.getItems((items) => {
