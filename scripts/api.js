@@ -19,16 +19,29 @@ const api = (function(){
     const newItem = JSON.stringify(item);
     $.ajax({
       'url' : `${BASE_URL}/items`,
-      "method" : "POST",
-      "contentType"  : "application/json",
-      "data" : newItem,
-      "success" : callback
+      'method' : 'POST',
+      'contentType'  : 'application/json',
+      // 'dataType' : 'json',
+      'data' : newItem,
+      'success' : callback
+    });
+  };
+
+  const updateItem = function( id, updateData, callback){
+    const updateDataString = JSON.stringify(updateData);
+    $.ajax({
+      'url' : `${BASE_URL}/items/${id}`,
+      'method': 'PATCH',
+      'contentType': 'application/json',
+      'data': updateDataString,
+      'success': callback
     });
   };
 
   return {
     getItems,
-    createItem
+    createItem,
+    updateItem
   };
 
 }());
